@@ -24,7 +24,7 @@ int http_parse_request(const char *raw, int len, HttpRequest *req)
 
     p = sp +1;
     sp = memchr(p, ' ', (size_t)(crlf - p));
-    if (!sp) { req->parse_error = 1; return 1;}
+    if (!sp) { req->parse_error = 1; return -1;}
     int pl = (int)(sp - p);
     if (pl >= (int)sizeof(req->path)) pl = (int)sizeof(req->path) - 1;
     memcpy(req->path, p, pl);
@@ -37,10 +37,10 @@ int http_parse_request(const char *raw, int len, HttpRequest *req)
             found_end = 1;
             break;
         }
-        if ((p[0] == 'H' || p[0] ==' h') &&
-            (p[1] == 'O' || p[1] ==' o') &&
-            (p[2] == 'S' || p[2] ==' s') &&
-            (p[3] == 'T' || p[3] ==' t') &&
+        if ((p[0] == 'H' || p[0] =='h') &&
+            (p[1] == 'O' || p[1] =='o') &&
+            (p[2] == 'S' || p[2] =='s') &&
+            (p[3] == 'T' || p[3] =='t') &&
             p[4] == ':') 
         {
             p += 5;

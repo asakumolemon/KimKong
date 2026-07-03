@@ -3,17 +3,17 @@
 
 #include <stdint.h>
 #ifdef _WIN32
-    #include <WinSock2.h>;
-    #include <WS2tcpip.h>;
+    #include <winsock2.h>
+    #include <ws2tcpip.h>
     typedef SOCKET socket_t;
-    #define INVALID_SOCKET_VALUE INVALID_SOCKET;
-    #define SOCKET_ERROR_RETURN SOCKET_ERROR;
+    #define INVALID_SOCKET_VALUE INVALID_SOCKET
+    #define SOCKET_ERROR_RETURN  SOCKET_ERROR
 #else
     #include <sys/socket.h>
     #include <netinet/in.h>
     #include <netdb.h>
-    #include <fcntl.h>
     #include <unistd.h>
+    #include <fcntl.h>
     #include <errno.h>
     typedef int socket_t;
     #define INVALID_SOCKET_VALUE (-1)
