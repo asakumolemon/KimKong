@@ -34,4 +34,4 @@ void        sock_close(socket_t fd);
 int         sock_get_error(void);
 
 
-#endif TCP_SOCKET_H
+#endif /* TCP_SOCKET_H */

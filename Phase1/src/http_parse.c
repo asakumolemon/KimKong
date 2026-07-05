@@ -1,6 +1,7 @@
 #include "http_parse.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int http_parse_request(const char *raw, int len, HttpRequest *req)
 {

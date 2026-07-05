@@ -1,0 +1,36 @@
+#include <windows.h>
+#include "resource.h"
+
+IDI_APP ICON "assets/app.ico"
+
+ID_DIALOG_CONFIG DIALOG 0, 0, 380, 300
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Backend Configuration"
+FONT 9, "Segoe UI"
+BEGIN
+    GROUPBOX    "Add New Backend", -1, 10, 5, 360, 55
+    LTEXT       "Host:", -1, 20, 22, 30, 10
+    EDITTEXT    ID_EDIT_HOST, 55, 20, 150, 14, ES_AUTOHSCROLL
+    LTEXT       "Port:", -1, 215, 22, 25, 10
+    EDITTEXT    ID_EDIT_UPORT, 240, 20, 40, 14, ES_NUMBER
+    LTEXT       "Weight:", -1, 290, 22, 30, 10
+    EDITTEXT    ID_EDIT_WEIGHT, 320, 20, 35, 14, ES_NUMBER
+    PUSHBUTTON  "Add", ID_BUTTON_ADD, 290, 42, 60, 15
+
+    GROUPBOX    "Existing Backends", -1, 10, 65, 200, 145
+    LISTBOX     ID_LIST_BACKENDS, 20, 80, 180, 100, LBS_STANDARD | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON  "Remove", ID_BUTTON_REMOVE, 120, 185, 60, 15
+
+    GROUPBOX    "Health Check Settings", -1, 220, 65, 150, 145
+    LTEXT       "Interval (s):", -1, 230, 82, 60, 10
+    EDITTEXT    ID_EDIT_HC_INTERVAL, 290, 80, 60, 13, ES_NUMBER
+    LTEXT       "Timeout (s):", -1, 230, 100, 60, 10
+    EDITTEXT    ID_EDIT_HC_TIMEOUT, 290, 98, 60, 13, ES_NUMBER
+    LTEXT       "Fail Threshold:", -1, 230, 118, 60, 10
+    EDITTEXT    ID_EDIT_HC_FAIL_THRESH, 290, 116, 60, 13, ES_NUMBER
+    LTEXT       "Revive Threshold:", -1, 230, 136, 60, 10
+    EDITTEXT    ID_EDIT_HC_REVIVE_THRESH, 290, 134, 60, 13, ES_NUMBER
+
+    DEFPUSHBUTTON "OK", IDOK, 200, 270, 70, 20
+    PUSHBUTTON    "Cancel", IDCANCEL, 290, 270, 70, 20
+END
